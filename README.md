@@ -1,74 +1,139 @@
-# Employee Management System using Angular spring-boot mysql Full Stack Project
+# Employee Management System
+A web-based application designed to simplify and automate the management of employee information. This system provides efficient CRUD operations, a user-friendly interface, and seamless integration between the frontend and backend.
 
+## Table of Contents
+1. [Introduction](#introduction)
+2. [Tech Stack](#tech-stack)
+3. [Features](#features)
+4. [System Architecture](#system-architecture)
+5. [Data Flow Diagram](#data-flow-diagram)
+6. [Components Explanation](#components-explanation)
+7. [Setup and Execution](#setup-and-execution)
+8. [API Endpoints](#api-endpoints)
+9. [Future Scope](#future-scope)
+10. [Contact](#contact)
 
+## Introduction
+The Employee Management System is a full-stack web application aimed at streamlining employee data management. The system offers functionalities to add, update, delete, and view employee details, making manual processes error-free and efficient.
 
-The Employee Management System is a comprehensive web application designed to streamline and enhance the management of employee-related tasks within an organization. This system utilizes a modern and efficient technology stack, including Spring Boot for the backend, Angular for the frontend, and MySQL for the database.
+## Tech Stack
+- **Frontend**: Angular
+- **Backend**: Spring Boot
+- **Database**: MySQL
 
-**Technology Stack:**
+## Features
+1. **Home Page**: Overview of the system.
+2. **View Employees**: List all employees with their details.
+3. **Add Employee**: Add a new employee record.
+4. **Update Employee**: Edit existing employee information.
+5. **Delete Employee**: Remove employee data.
 
-*Backend:*
-- **Spring Boot:** The backend of the Employee Management System is built using Spring Boot, a Java-based framework known for its simplicity and ease of use. Spring Boot provides a robust and scalable foundation for developing enterprise-level applications.
+## System Architecture
+Below is a simple architecture diagram showcasing the components and their interaction:
+- **Frontend (Angular)**: User interface for interacting with the application.
+- **Backend (Spring Boot)**: Processes requests and handles business logic.
+- **Database (MySQL)**: Stores employee records persistently.
+- **REST API**: Enables communication between the frontend and backend.
 
-- **MySQL:** The database layer is powered by MySQL, a reliable relational database management system. MySQL is utilized for storing and retrieving employee-related data, ensuring data integrity and efficiency in data management.
+## Data Flow Diagram
+*(Include the data flow diagram here if available)*
 
-*Frontend:*
-- **Angular:** The frontend of the application is developed using Angular, a powerful and dynamic front-end framework. Angular facilitates the creation of a responsive and interactive user interface, enabling seamless communication with the backend.
+## Components Explanation
 
-# Home Page
-![Web capture_11-1-2024_143259_localhost](https://github.com/adityasurya4103/employee-management-system-angular-spring-boot-mysql/assets/97177344/f76ac939-84aa-480a-adaa-5f5a8b70f143)
+### Frontend (Angular)
+- **Purpose**: Create a responsive and user-friendly interface for users to interact with the system.
+- **Key Features**:
+  - Dynamic rendering of employee data.
+  - Forms for CRUD operations.
+  - REST API integration with backend.
 
-# View all Employees Page
-![Web capture_11-1-2024_143359_localhost](https://github.com/adityasurya4103/employee-management-system-angular-spring-boot-mysql/assets/97177344/d4538054-d230-4faa-9313-d0af96e64bc9)
+### Backend (Spring Boot)
+- **Purpose**: Act as the server for handling requests, processing business logic, and interacting with the database.
+- **Key Features**:
+  - REST API endpoints for CRUD operations.
+  - Exception handling using `ResourceNotFoundException`.
+  - Security configurations for future enhancements.
 
-# Update Existing Employee
-![Web capture_11-1-2024_143434_localhost](https://github.com/adityasurya4103/employee-management-system-angular-spring-boot-mysql/assets/97177344/ccd9a275-7629-4261-bc65-fba9495dd537)
+### Database (MySQL)
+- **Purpose**: Persistent storage for employee data.
+- **Structure**: The database contains a table named `employees_table` with columns for `id`, `fname`, `lname`, `email`, `salary`, `department`, `designation`, and `joiningDate`.
 
-# Add New Employee
-![Web capture_11-1-2024_143414_localhost](https://github.com/adityasurya4103/employee-management-system-angular-spring-boot-mysql/assets/97177344/2e1d666e-56bd-4e51-9481-4833cfa8753d)
+## Setup and Execution
 
-# Delete Employee
-![Screenshot (7)](https://github.com/adityasurya4103/employee-management-system-angular-spring-boot-mysql/assets/97177344/bf9c27c3-bc9b-4e14-8018-4b767062ac33)
+### Prerequisites
+- Node.js and npm
+- Angular CLI
+- Java (JDK 8 or higher)
+- MySQL Server
+- Spring Boot
 
-# Admin Login Page
-![login page](https://github.com/adityasurya4103/employee-management-system-angular-spring-boot-mysql/assets/97177344/c5c9339e-50eb-44fb-8966-af47dec94405)
+### Steps to Run the Project
 
+#### Frontend (Angular)
+1. Navigate to the frontend directory:
+   ```bash
+   cd frontend
+2. Install dependencies:
+   ```bash
+   npm install
+3. Start the Angular development server:
+   ```bash
+   ng serve
+4. Open your browser and navigate to http://localhost:4200.
 
-# View Details of Particular Employee
-![Web capture_11-1-2024_143456_localhost](https://github.com/adityasurya4103/employee-management-system-angular-spring-boot-mysql/assets/97177344/b86ad143-b360-4760-962a-f8e36f3bcab8)
+#### Backend (Spring Boot)
+1. Navigate to the backend directory:
+   ```bash
+   cd backend
+2. Update the application.properties file with your MySQL credentials:
+   ```bash
+   spring.datasource.url=jdbc:mysql://localhost:3306/emp
+   spring.datasource.username=<your-username>
+   spring.datasource.password=<your-password>
+3. Run the Spring Boot application:
+   ```bash
+   mvn spring-boot:run
+4. The backend server will start on http://localhost:8080.
 
+#### Database Setup 
+1. Create a database named emp in MySQL:
+   ```bash
+   CREATE DATABASE emp;
+2. The application will automatically create the employees_table on the first run.
 
+## API Endpoints
 
-**Key Features:**
+### Fetch All Employees
+- **Endpoint**: `GET /api/v1/employees`
+- **Description**: Retrieve all employee records.
 
-1. **Home Page:**
-   - The home page serves as the central hub, providing users with an intuitive and user-friendly interface. It includes quick links to essential features and announcements.
+### Add Employee
+- **Endpoint**: `POST /api/v1/employees`
+- **Description**: Add a new employee to the database.
 
-2. **View All Employee:**
-   - Users, including administrators, can easily access a comprehensive list of all employees within the organization. The interface allows for efficient sorting, searching, and filtering of employee data.
+### Fetch Employee By ID
+- **Endpoint**: `GET /api/v1/employees/{id}`
+- **Description**: Retrieve employee details by their ID.
 
-3. **Add Employee Page:**
-   - The system offers a dedicated page for adding new employees, featuring a well-designed form with form validation. This ensures that accurate and complete information is entered for each employee.
+### Update Employee
+- **Endpoint**: `PUT /api/v1/employees/{id}`
+- **Description**: Update details of an existing employee.
 
-4. **Admin Panel:**
-   - The admin panel is a secure section accessible only to authorized users. Admins have the authority to manage user roles, access control, and other administrative tasks.
+### Delete Employee
+- **Endpoint**: `DELETE /api/v1/employees/{id}`
+- **Description**: Delete an employee record by ID.
 
-5. **CRUD Operations:**
-   - The system supports all essential CRUD (Create, Read, Update, Delete) operations. Users can add new employees, update existing records, delete unnecessary entries, and view detailed information about each employee.
+## Future Scope
+1. **Authentication and Authorization**: Add role-based access control.
+2. **Reporting and Analytics**: Generate reports and visualize data trends.
+3. **Cloud Deployment**: Host the system on platforms like AWS or Azure for scalability.
 
-6. **Form Validation:**
-   - Robust form validation mechanisms are implemented to ensure the accuracy and completeness of data entered by users. This helps in maintaining data integrity and consistency.
+## Contact
+- chintavishnupriya45@gmail.com
+- udayaudayarr@gmail.com
+- princepanjiyar02@gmail.com
 
-**Backend Technology:**
+   
+   
 
-The backend, powered by Spring Boot, handles data processing, business logic, and database interactions. It exposes RESTful APIs that the frontend consumes for seamless communication. Spring Boot's modular and organized structure simplifies code maintenance and promotes scalability.
-
-**Frontend Technology:**
-
-Angular, on the frontend, provides a dynamic and responsive user interface. It facilitates the creation of modular components and services, enhancing code maintainability and reusability. Angular's two-way data binding ensures real-time updates between the user interface and backend data.
-
-In conclusion, the Employee Management System offers a robust solution for organizations to efficiently manage their workforce. The use of Spring Boot, Angular, and MySQL ensures a scalable, secure, and user-friendly platform for handling various employee-related tasks.
-
-
-
-
-
+    
