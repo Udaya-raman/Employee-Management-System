@@ -35,9 +35,6 @@ Below is a simple architecture diagram showcasing the components and their inter
 - **Database (MySQL)**: Stores employee records persistently.
 - **REST API**: Enables communication between the frontend and backend.
 
-## Data Flow Diagram
-*(Include the data flow diagram here if available)*
-
 ## Components Explanation
 
 ### Frontend (Angular)
